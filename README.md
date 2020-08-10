@@ -1,2 +1,2 @@
 # DatacampR
-R codes that is learnt from datacamp website
+R codes that are learnt from the datacamp website.
