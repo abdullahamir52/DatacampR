@@ -15,7 +15,8 @@
 # you put in a matrix should be of the same type. Back then, your data set 
 # on Star Wars only contained numeric elements.
 
-# When doing a market research survey, however, you often have questions such as:
+# When doing a market research survey, however, you often have questions 
+# such as:
 
 # 'Are you married?' or 'yes/no' questions (logical)
 # 'How old are you?' (numeric)
@@ -124,7 +125,7 @@ str(mtcars)
 # own data sets, the rest of this chapter is based on your personally 
 # developed data set. Put your jet pack on because it is time for some 
 # space exploration!
- 
+
 # As a first goal, you want to construct a data frame that describes the 
 # main characteristics of eight planets in our solar system. According to 
 # your good friend Buzz, the main features of a planet are:
@@ -149,9 +150,11 @@ str(mtcars)
 # in this order. Call the resulting data frame planets_df.
 
 # Definition of vectors
-name <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+name <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus",
+          "Neptune")
 type <- c("Terrestrial planet", "Terrestrial planet", "Terrestrial planet", 
-          "Terrestrial planet", "Gas giant", "Gas giant", "Gas giant", "Gas giant")
+          "Terrestrial planet", "Gas giant", "Gas giant", "Gas giant", 
+          "Gas giant")
 diameter <- c(0.382, 0.949, 1, 0.532, 11.209, 9.449, 4.007, 3.883)
 rotation <- c(58.64, -243.02, 1, 1.03, 0.41, 0.43, -0.72, 0.67)
 rings <- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
@@ -184,7 +187,8 @@ str(planets_df)
 # Output
 # 'data.frame':	8 obs. of  5 variables:
 # $ name    : chr  "Mercury" "Venus" "Earth" "Mars" ...
-# $ type    : chr  "Terrestrial planet" "Terrestrial planet" "Terrestrial planet" "Terrestrial planet" ...
+# $ type    : chr  "Terrestrial planet" "Terrestrial planet" 
+#             "Terrestrial planet" "Terrestrial planet" ...
 # $ diameter: num  0.382 0.949 1 0.532 11.209 ...
 # $ rotation: num  58.64 -243.02 1 1.03 0.41 ...
 # $ rings   : logi  FALSE FALSE FALSE FALSE TRUE TRUE ...
@@ -248,7 +252,8 @@ planets_df[4,]
 
 # planets_df[1:3,"type"]
 
-# Select and print out the first 5 values in the "diameter" column of planets_df.
+# Select and print out the first 5 values in the "diameter" column of 
+# planets_df.
 
 # The planets_df data frame from the previous exercise is pre-loaded
 planets_df
@@ -267,7 +272,8 @@ planets_df[1:5,"diameter"]
 
 # planets_df[,3]
 # planets_df[,"diameter"]
-# However, there is a short-cut. If your columns have names, you can use the $ sign:
+# However, there is a short-cut. If your columns have names, you can 
+# use the $ sign:
  
 # planets_df$diameter
 
@@ -405,8 +411,13 @@ b[order(b)]
 
 # planets_df is pre-loaded in your workspace
 
+planets_df$diameter
+# [1]  0.382  0.949  1.000  0.532 11.209  9.449  4.007  3.883
+
 # Use order() to create positions
 positions <-  order(planets_df$diameter)
+positions
+# [1] 1 4 2 3 8 7 6 5
 
 # Use positions to sort planets_df
 planets_df[positions,]

@@ -146,7 +146,15 @@ factor_temperature_vector
 
 # Code to build factor_survey_vector
 survey_vector <- c("M", "F", "F", "M", "M")
+survey_vector
+# [1] "M" "F" "F" "M" "M"
+
 factor_survey_vector <- factor(survey_vector)
+factor_survey_vector 
+# Output
+# [1] M F F M M
+# Levels: F M
+
 
 # Specify the levels of factor_survey_vector
 levels(factor_survey_vector) <-c("Female","Male")
@@ -184,7 +192,7 @@ factor_survey_vector
 summary(survey_vector)
 # Output
 # Length     Class      Mode 
-# 5 character character 
+#      5 character character 
 
 # Generate summary for factor_survey_vector
 summary(factor_survey_vector)
@@ -319,8 +327,18 @@ factor_speed_vector <- factor(speed_vector, ordered = TRUE,
 
 # Factor value for second data analyst
 da2 <- factor_speed_vector[2]
+da2
+# Output
+# [1] slow
+# Levels: slow < medium < fast
+
+
 # Factor value for fifth data analyst
 da5 <- factor_speed_vector[5]
+da5
+# Output
+# [1] fast
+# Levels: slow < medium < fast
 
 # Is data analyst 2 faster than data analyst 5?
 da2>da5

@@ -14,8 +14,10 @@
 
 # Vectors (one dimensional array): can hold numeric, character or logical 
 # values. The elements in a vector all have the same data type.
+
 # Matrices (two dimensional array): can hold numeric, character or logical 
 # values. The elements in a matrix all have the same data type.
+
 # Data frames (two-dimensional objects): can hold numeric, character or 
 # logical values. Within a column all elements have the same data type, but 
 # different columns can be of different data type.
@@ -123,6 +125,13 @@ my_df <- mtcars[1:10,]
 
 # Adapt list() call to give the components names
 my_list <- list(vec=my_vector, mat=my_matrix, df=my_df)
+
+# Or
+my_vector <- 1:10 
+my_matrix <- matrix(1:9, ncol = 3)
+my_df <- mtcars[1:10,]
+my_list <- list(my_vector,my_matrix,my_df)
+names(my_list) <- c("vec", "mat", "df")
 
 # Print out my_list
 my_list
@@ -256,7 +265,7 @@ shining_list[[2]][2]
 # movie_actors, reviews data frame as reviews_df, and the average review 
 # score as avg_review, and print it out.
 
-movie_title <- c("movie_title")
+movie_title <- c("The Departed")
 movie_actors <- c("Leonardo DiCaprio", "Matt Damon", 
                   "Jack Nicholson", "Mark Wahlberg", "Vera Farmiga", 
                   "Martin Sheen")

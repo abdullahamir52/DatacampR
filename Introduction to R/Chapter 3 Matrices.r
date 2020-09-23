@@ -108,7 +108,8 @@ empire_strikes <- c(290.475, 247.900)
 return_jedi <- c(309.306, 165.8)
 
 # Construct matrix
-star_wars_matrix <- matrix(c(new_hope, empire_strikes, return_jedi), nrow = 3, byrow = TRUE)
+star_wars_matrix <- matrix(c(new_hope, empire_strikes, return_jedi), 
+                           nrow = 3, byrow = TRUE)
 
 # Vectors region and titles, used for naming
 region <- c("US", "non-US")
@@ -150,7 +151,9 @@ star_wars_matrix
 # Construct star_wars_matrix
 box_office <- c(460.998, 314.4, 290.475, 247.900, 309.306, 165.8)
 star_wars_matrix <- matrix(box_office, nrow = 3, byrow = TRUE,
-                           dimnames = list(c("A New Hope", "The Empire Strikes Back", "Return of the Jedi"), 
+                           dimnames = list(c("A New Hope", 
+                                             "The Empire Strikes Back", 
+                                             "Return of the Jedi"), 
                                            c("US", "non-US")))
 
 # Calculate worldwide box office figures
@@ -169,7 +172,8 @@ worldwide_vector
 # However, this vector is not yet part of star_wars_matrix.
 
 # You can add a column or multiple columns to a matrix with the cbind() 
-# function, which merges matrices and/or vectors together by column. For example:
+# function, which merges matrices and/or vectors together by column. 
+# For example:
 
 # big_matrix <- cbind(matrix1, matrix2, vector1 ...)
 
@@ -179,7 +183,9 @@ worldwide_vector
 # Construct star_wars_matrix
 box_office <- c(460.998, 314.4, 290.475, 247.900, 309.306, 165.8)
 star_wars_matrix <- matrix(box_office, nrow = 3, byrow = TRUE,
-                           dimnames = list(c("A New Hope", "The Empire Strikes Back", "Return of the Jedi"), 
+                           dimnames = list(c("A New Hope", 
+                                             "The Empire Strikes Back", 
+                                             "Return of the Jedi"), 
                                            c("US", "non-US")))
 
 # The worldwide box office figures
@@ -216,27 +222,38 @@ all_wars_matrix
 # order. Assign the resulting matrix to all_wars_matrix.
 
 # star_wars_matrix and star_wars_matrix2 are available in your workspace
-star_wars_matrix  
+box_office <- c(460.998, 314.4, 290.475, 247.900, 309.306, 165.8)
+star_wars_matrix <- matrix(box_office, nrow = 3, byrow = TRUE,
+                           dimnames = list(c("A New Hope", 
+                                             "The Empire Strikes Back", 
+                                             "Return of the Jedi"), 
+                                           c("US", "non-US")))
+star_wars_matrix
+
+box_office <- c(474.5, 552.5, 310.7, 338.7, 380.3, 468.5)
+star_wars_matrix2 <- matrix(box_office, nrow = 3, byrow = TRUE,
+                           dimnames = list(c("The Phantom Menace", 
+                                             "Attack of the Clones", 
+                                             "Revenge of the Sith"), 
+                                           c("US", "non-US")))
 star_wars_matrix2 
 
 # Combine both Star Wars trilogies in one matrix
 all_wars_matrix <- rbind(star_wars_matrix,star_wars_matrix2)
 all_wars_matrix
 # Output
-#                              US non-US worldwide_vector
-# A New Hope              460.998  314.4          775.398
-# The Empire Strikes Back 290.475  247.9          538.375
-# Return of the Jedi      309.306  165.8          475.106
+#                              US non-US
+# A New Hope              460.998  314.4
+# The Empire Strikes Back 290.475  247.9
+# Return of the Jedi      309.306  165.8
+# The Phantom Menace      474.500  552.5
+# Attack of the Clones    310.700  338.7
+# Revenge of the Sith     380.300  468.5
 
 ls()
 # Output
-# [1] "a"                "A_vector"         "all_wars_matrix"  "b"               
-# [5] "B_vector"         "box_office"       "c"                "days_vector"     
-# [9] "empire_strikes"   "my_apples"        "my_character"     "my_fruit"        
-# [13] "my_logical"       "my_numeric"       "my_oranges"       "new_hope"        
-# [17] "poker_vector"     "region"           "return_jedi"      "roulette_vector" 
-# [21] "star_wars_matrix" "titles"           "total_vector"     "worldwide_vector"
-# [25] "x"   
+# [1] "all_wars_matrix"   "box_office"        "star_wars_matrix" 
+# [4] "star_wars_matrix2" 
 
 # ==============================================================================
 ## The total box office revenue for the entire saga
@@ -260,8 +277,8 @@ total_revenue_vector <- colSums(all_wars_matrix)
 # Print out total_revenue_vector
 total_revenue_vector
 # Output
-#       US           non-US worldwide_vector 
-# 1060.779          728.100         1788.879 
+#       US   non-US 
+# 2226.279 2087.800 
 
 # ==============================================================================
 ## Selection of matrix elements
@@ -299,7 +316,7 @@ non_us_all <- all_wars_matrix[,2]
 
 # Average non-US revenue
 mean(non_us_all)
-# [1] 242.7
+# [1] 347.9667
 
 # Select the non-US revenue for first two movies
 non_us_some <- all_wars_matrix[1:2,2]
@@ -330,10 +347,13 @@ mean(non_us_some)
 # all_wars_matrix is available in your workspace
 all_wars_matrix
 # Output
-#                              US non-US worldwide_vector
-# A New Hope              460.998  314.4          775.398
-# The Empire Strikes Back 290.475  247.9          538.375
-# Return of the Jedi      309.306  165.8          475.106
+#                              US non-US
+# A New Hope              460.998  314.4
+# The Empire Strikes Back 290.475  247.9
+# Return of the Jedi      309.306  165.8
+# The Phantom Menace      474.500  552.5
+# Attack of the Clones    310.700  338.7
+# Revenge of the Sith     380.300  468.5
 
 # Estimate the visitors
 visitors <- all_wars_matrix/5
@@ -341,10 +361,13 @@ visitors <- all_wars_matrix/5
 # Print the estimate to the console
 visitors
 # Output
-#                              US non-US worldwide_vector
-# A New Hope              92.1996  62.88         155.0796
-# The Empire Strikes Back 58.0950  49.58         107.6750
-# Return of the Jedi      61.8612  33.16          95.0212
+#                              US non-US
+# A New Hope              92.1996  62.88
+# The Empire Strikes Back 58.0950  49.58
+# Return of the Jedi      61.8612  33.16
+# The Phantom Menace      94.9000 110.50
+# Attack of the Clones    62.1400  67.74
+# Revenge of the Sith     76.0600  93.70
 
 # ==============================================================================
 ## A little arithmetic with matrices (2)
@@ -389,13 +412,11 @@ all_wars_matrix
 
 
 m1 <- c(5.0, 5.0, 6.0, 6.0, 7.0, 7.0, 4.0, 4.0, 4.5, 4.5, 4.9, 4.9)
-ticket_prices_matrix <- matrix(m1, nrow = 6, byrow = TRUE)
-colnames_vector <- c("US", "non-US")
-rownames_vector <- c("A New Hope", "The Empire Strikes Back", 
-                     "Return of the Jedi", "The Phantom Menace", 
-                     "Attack of the Clones", "Revenge of the Sith")
-colnames(ticket_prices_matrix) <- colnames_vector
-rownames(ticket_prices_matrix) <- rownames_vector
+ticket_prices_matrix <- matrix(m1, nrow = 6, byrow = TRUE,
+          dimnames = list(c("A New Hope", "The Empire Strikes Back", 
+                       "Return of the Jedi", "The Phantom Menace", 
+                       "Attack of the Clones", "Revenge of the Sith"),
+                      c("US", "non-US")))
 
 ticket_prices_matrix
 # Output
